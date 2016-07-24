@@ -27,10 +27,10 @@ verbose
 # blocklist "SlackHQ, stewart"
 
 # ignore 'cut ... slack' tweets
-exclude "cut"
+exclude "cut", "off"
 
 search "slack" do |tweet|
- favorite tweet[:id]
+  favorite tweet.id
 end
 
 #
