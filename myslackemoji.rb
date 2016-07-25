@@ -19,7 +19,7 @@ require 'chatterbot/dsl'
 # remove this to get less output when running your bot
 verbose
 
-# blocklist "SlackHQ, stewart"
+blocklist "SLACK_TV"
 
 # ignore 'cut/give ... slack', 'slack off' tweets
 exclude "cut", "give", "off"
