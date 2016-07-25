@@ -3,11 +3,6 @@
 require 'rubygems'
 require 'chatterbot/dsl'
 
-consumer_key ENV['CONSUMER_KEY']
-consumer_secret ENV['CONSUMER_SECRET']
-token ENV['TOKEN']
-secret ENV['SECRET']
-
 # Enabling **debug_mode** prevents the bot from actually sending
 # tweets. Keep this active while you are developing your bot. Once you
 # are ready to send out tweets, you can remove this line.
