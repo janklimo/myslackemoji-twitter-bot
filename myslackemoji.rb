@@ -24,7 +24,11 @@ verbose
 # ignore 'cut/give ... slack', 'slack off' tweets
 exclude "cut", "give", "off"
 
-search "slack" do |tweet|
+search "slack company" do |tweet|
+  favorite tweet.id
+end
+
+search "slack emoji" do |tweet|
   favorite tweet.id
 end
 
