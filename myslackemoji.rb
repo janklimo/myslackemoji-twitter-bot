@@ -26,10 +26,12 @@ exclude "cut", "give", "off"
 blocklist "SLACK_TV"
 
 # request limit is 15 requests per 15 minute window
+puts "Searching: slack company"
 client.search("slack company", result_type: "recent").take(6).each do |tweet|
   like tweet
 end
 
+puts "Searching: slack emoji"
 client.search("slack emoji", result_type: "recent").take(6).each do |tweet|
   like tweet
 end
