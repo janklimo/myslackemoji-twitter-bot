@@ -25,6 +25,13 @@ exclude "cut", "give", "off"
 # filter out users
 blocklist "SLACK_TV"
 
+def like(tweet)
+  if bot.valid_tweet?(tweet)
+    favorite tweet.id
+    puts "Favorited: #{tweet.text}"
+  end
+end
+
 # request limit is 15 requests per 15 minute window
 puts "Searching: slack company"
 client.search("slack company", result_type: "recent").take(6).each do |tweet|
@@ -34,13 +41,6 @@ end
 puts "Searching: slack emoji"
 client.search("slack emoji", result_type: "recent").take(6).each do |tweet|
   like tweet
-end
-
-def like(tweet)
-  if bot.valid_tweet?(tweet)
-    favorite tweet.id
-    puts "Favorited: #{tweet.text}"
-  end
 end
 
 # this block responds to mentions of your bot
