@@ -25,18 +25,22 @@ exclude "cut", "give", "off"
 # filter out users
 blocklist "SLACK_TV"
 
-client.search("slack company", result_type: "recent").take(12).each do |tweet|
+# request limit is 15 requests per 15 minute window
+client.search("slack company", result_type: "recent").take(6).each do |tweet|
+  like tweet
+end
+
+client.search("slack emoji", result_type: "recent").take(6).each do |tweet|
+  like tweet
+end
+
+def like(tweet)
   if bot.valid_tweet?(tweet)
     favorite tweet.id
     puts "Favorited: #{tweet.text}"
   end
 end
 
-# search "slack emoji" do |tweet|
-#   favorite tweet.id
-# end
-
-#
 # this block responds to mentions of your bot
 #
 #replies do |tweet|
