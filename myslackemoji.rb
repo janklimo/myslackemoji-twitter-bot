@@ -26,7 +26,10 @@ exclude "cut", "give", "off"
 blocklist "SLACK_TV"
 
 client.search("slack company", result_type: "recent").take(12).each do |tweet|
-  favorite(tweet.id) if bot.valid_tweet?(tweet)
+  if bot.valid_tweet?(tweet)
+    favorite tweet.id
+    puts "Favorited: #{tweet.text}"
+  end
 end
 
 # search "slack emoji" do |tweet|
