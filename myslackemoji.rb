@@ -24,13 +24,13 @@ blocklist "SLACK_TV"
 # ignore 'cut/give ... slack', 'slack off' tweets
 exclude "cut", "give", "off"
 
-search "slack company" do |tweet|
-  favorite tweet.id
+client.search("slack company", result_type: "recent").take(3).each do |tweet|
+  puts tweet.text
 end
 
-search "slack emoji" do |tweet|
-  favorite tweet.id
-end
+# search "slack emoji" do |tweet|
+#   favorite tweet.id
+# end
 
 #
 # this block responds to mentions of your bot
