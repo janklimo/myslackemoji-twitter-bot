@@ -2,7 +2,6 @@
 
 require 'rubygems'
 require 'chatterbot/dsl'
-require 'chatterbot/blocklist'
 
 # Enabling **debug_mode** prevents the bot from actually sending
 # tweets. Keep this active while you are developing your bot. Once you
@@ -27,7 +26,7 @@ exclude "cut", "give", "off"
 blocklist "SLACK_TV"
 
 client.search("slack company", result_type: "recent").take(12).each do |tweet|
-  favorite(tweet.id) if valid_tweet?(tweet)
+  favorite(tweet.id) if bot.valid_tweet?(tweet)
 end
 
 # search "slack emoji" do |tweet|
